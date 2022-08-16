@@ -1,8 +1,8 @@
 import sys
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QIcon
+from collections import Counter
+from PyQt5 import QtCore, QtGui
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QMessageBox
-from UI.ui import Ui_MainWindow
+from Ui.ui import Ui_MainWindow
 
 
 class Main(QMainWindow, Ui_MainWindow):
@@ -10,7 +10,7 @@ class Main(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
 
-        self.setWindowIcon(QIcon("Logo.ico")) # 设置软件图标
+        self.setWindowIcon(QtGui.QIcon("Logo.ico")) # 设置软件图标
         self.setFixedSize(self.width(), self.height()) # 禁止窗口最大化
         self.tableWidget.verticalHeader().setVisible(False) # 表格不显示表头
 
@@ -22,17 +22,11 @@ class Main(QMainWindow, Ui_MainWindow):
             return text
         QMessageBox.information(self, "温馨提示", "您输入的内容为空!", QMessageBox.Yes)
 
-    def get_dic(self, text):
-        return {i: 0 for i in text}
 
     def get_frequency(self):
         text = self.get_text()
         if text is not None:
-            dic = self.get_dic(text)
-
-            for character in text:
-                if character in dic:
-                    dic[character] += 1
+            dic = Counter(text)
 
             # 从大到小排序
             sort_info = sorted(dic.items(), key=lambda i:i[1], reverse=True) # [('e', 39915), ... ('z', 264)]
@@ -57,7 +51,7 @@ class Main(QMainWindow, Ui_MainWindow):
             for x in range(self.tableWidget.rowCount()):
                 for y in range(self.tableWidget.columnCount()):
                     item = QTableWidgetItem(str(table_info[x][y]))
-                    item.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+                    item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
                     self.tableWidget.setItem(x, y, item)
 
             self.lineEdit.setText(edit_info)
