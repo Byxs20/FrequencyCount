@@ -22,7 +22,6 @@ class Main(QMainWindow, GUI.Ui_MainWindow):
             return text
         QMessageBox.information(self, "温馨提示", "您输入的内容为空!", QMessageBox.Yes)
 
-
     def get_frequency(self):
         text = self.get_text()
         if text is not None:
