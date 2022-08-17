@@ -1,16 +1,16 @@
 import sys
+from src import GUI
 from collections import Counter
 from PyQt5 import QtCore, QtGui
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QMessageBox
-from Ui.ui import Ui_MainWindow
 
 
-class Main(QMainWindow, Ui_MainWindow):
+class Main(QMainWindow, GUI.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
 
-        self.setWindowIcon(QtGui.QIcon("Logo.ico")) # 设置软件图标
+        self.setWindowIcon(QtGui.QIcon("./images/Logo.ico")) # 设置软件图标
         self.setFixedSize(self.width(), self.height()) # 禁止窗口最大化
         self.tableWidget.verticalHeader().setVisible(False) # 表格不显示表头
 

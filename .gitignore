@@ -1,9 +1,8 @@
 # 文件
-/main.spec
+/字频频率统计.spec
 
 # 文件夹
 UI/__pycache__/
 __pycache__/
 字频频率统计/
-build/
-dist/
+bin/
