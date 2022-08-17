@@ -45,7 +45,7 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="5,0,5">
      <item>
-      <widget class="QPlainTextEdit" name="plainTextEdit">
+      <widget class="MyQPlanTextEdit" name="plainTextEdit">
        <property name="font">
         <font>
          <family>微软雅黑</family>
@@ -185,6 +185,13 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MyQPlanTextEdit</class>
+   <extends>QPlainTextEdit</extends>
+   <header>myqplantextedit.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

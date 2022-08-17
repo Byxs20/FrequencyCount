@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.layoutWidget)
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.plainTextEdit = QtWidgets.QPlainTextEdit(self.layoutWidget)
+        self.plainTextEdit = MyQPlanTextEdit(self.layoutWidget)
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
         self.plainTextEdit.setFont(font)
@@ -106,3 +106,4 @@ class Ui_MainWindow(object):
         item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "频率 %"))
         self.pushButton.setText(_translate("MainWindow", "字频统计"))
+from src.GUI.myqplantextedit import MyQPlanTextEdit
