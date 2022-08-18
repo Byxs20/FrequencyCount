@@ -7,6 +7,7 @@ class MyQPlanTextEdit(QtWidgets.QPlainTextEdit):
         self.setAcceptDrops(True)
     
     def dragEnterEvent(self, e: QtGui.QDragEnterEvent) -> None:
+        super().dragEnterEvent(e)
         self.strPathFile = e.mimeData().text().replace('file:///', '')
         if self.strPathFile.endswith('.txt'):
             e.accept()
@@ -14,6 +15,7 @@ class MyQPlanTextEdit(QtWidgets.QPlainTextEdit):
             e.ignore()
 
     def dropEvent(self, e: QtGui.QDropEvent) -> None:
+        super().dropEvent(e)        
         if os.path.exists(self.strPathFile):
             with open(self.strPathFile, 'r') as f:
                 self.setPlainText(f.read())
