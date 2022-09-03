@@ -14,9 +14,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(900, 415)
-        MainWindow.setMinimumSize(QtCore.QSize(900, 415))
-        MainWindow.setMaximumSize(QtCore.QSize(900, 415))
+        MainWindow.resize(900, 425)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
         MainWindow.setFont(font)

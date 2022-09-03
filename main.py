@@ -56,6 +56,7 @@ class Main(QMainWindow, GUI.Ui_MainWindow):
             self.lineEdit.setText(edit_info)
 
 if __name__ == "__main__":
+    QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling) # DPI自适应
     app = QApplication(sys.argv)
     ui = Main()
     ui.show()

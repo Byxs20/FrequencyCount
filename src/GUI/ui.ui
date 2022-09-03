@@ -7,20 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>900</width>
-    <height>415</height>
+    <height>425</height>
    </rect>
   </property>
-  <property name="minimumSize">
-   <size>
-    <width>900</width>
-    <height>415</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>900</width>
-    <height>415</height>
-   </size>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="font">
    <font>
