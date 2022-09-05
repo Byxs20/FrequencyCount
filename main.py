@@ -22,6 +22,9 @@ class Main(QMainWindow, GUI.Ui_MainWindow):
             return text.replace("\r", "").replace("\n", "").replace("\t", "")
         QMessageBox.information(self, "温馨提示", "您输入的内容为空!", QMessageBox.Yes)
 
+    def get_checkBoxState(self):
+        return self.checkBox.isChecked()
+
     def get_frequency(self):
         text = self.get_text()
         if text is not None:
@@ -53,7 +56,7 @@ class Main(QMainWindow, GUI.Ui_MainWindow):
                     item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
                     self.tableWidget.setItem(x, y, item)
 
-            self.lineEdit.setText(edit_info)
+            self.plainTextEdit_2.setPlainText(edit_info[::-1]) if self.get_checkBoxState() else self.plainTextEdit_2.setPlainText(edit_info)
 
 if __name__ == "__main__":
     QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling) # DPI自适应
