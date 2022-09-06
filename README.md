@@ -1,6 +1,9 @@
 ## 注意事项：
-由于本项目使用upx压缩打包，如果你不懂这是什么意思的话，你就需要做这个步骤：
-将`package.py`中的第12行代码中的`--upx-dir {upx_path}`删除即可！
+[1].默认不适用upx打包，因为使用upx打包后，win11系统打开软件明显缓慢！
+
+[2].使用upx打包教程：
+
+修改 `package.py` 的第4行 `use_upx = False` 改为 `use_upx = True`，第6行的upx目录手动修改为自己的upx目录！
 
 
 ## pyinstaller打包
