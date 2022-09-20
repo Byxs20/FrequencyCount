@@ -59,7 +59,7 @@ class Main(QMainWindow, GUI.Ui_MainWindow):
             self.plainTextEdit_2.setPlainText(edit_info[::-1]) if self.get_checkBoxState() else self.plainTextEdit_2.setPlainText(edit_info)
 
 if __name__ == "__main__":
-    QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling) # DPI自适应
+    # QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling) # DPI自适应
     app = QApplication(sys.argv)
     ui = Main()
     ui.show()
