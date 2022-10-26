@@ -1,4 +1,5 @@
 import sys
+import string
 from src import GUI
 from collections import Counter
 from PyQt5 import QtCore, QtGui
@@ -10,6 +11,8 @@ class Main(QMainWindow, GUI.Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
 
+        self.str_lower = string.ascii_lowercase
+        self.str_upper = string.ascii_uppercase
         self.setWindowIcon(QtGui.QIcon("./images/Logo.ico")) # 设置软件图标
         self.setFixedSize(self.width(), self.height()) # 禁止窗口最大化
         self.tableWidget.verticalHeader().setVisible(False) # 表格不显示表头
@@ -22,13 +25,32 @@ class Main(QMainWindow, GUI.Ui_MainWindow):
             return text.replace("\r", "").replace("\n", "").replace("\t", "")
         QMessageBox.information(self, "温馨提示", "您输入的内容为空!", QMessageBox.Yes)
 
+    def get_radioButtonState(self):
+        if self.radioButton.isChecked():
+            return 1
+        elif self.radioButton_2.isChecked():
+            return 2
+        elif self.radioButton_3.isChecked():
+            return 3
+
     def get_checkBoxState(self):
         return self.checkBox.isChecked()
 
     def get_frequency(self):
         text = self.get_text()
         if text is not None:
-            dic = Counter(text)
+            # 检查单选按钮情况
+            radioButtonState = self.get_radioButtonState()
+            if radioButtonState == 1:
+                dic = Counter(text)
+            elif radioButtonState == 2:
+                text = filter(lambda chr: chr in self.str_upper, text)
+                text = "".join(text)
+                dic = Counter(text)
+            elif radioButtonState == 3:
+                text = filter(lambda chr: chr in self.str_lower, text)
+                text = "".join(text)
+                dic = Counter(text)
 
             # 从大到小排序
             sort_info = sorted(dic.items(), key=lambda i:i[1], reverse=True) # [('e', 39915), ... ('z', 264)]
