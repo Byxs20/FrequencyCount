@@ -19,10 +19,10 @@
 
 **下载Github发行的Releases，解压即可食用**
 
-![image-20221027095021720](images/image.png)
+![image](images/image.png)
 
 <br>
 
 # 使用效果：
 
-![](images\image.gif)
+![gif](images\image.gif)
