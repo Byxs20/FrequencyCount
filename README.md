@@ -25,4 +25,4 @@
 
 # 使用效果：
 
-![gif](images\image.gif)
+![gif](images/image.gif)
