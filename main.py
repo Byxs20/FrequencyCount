@@ -32,6 +32,10 @@ class Main(QMainWindow, GUI.Ui_MainWindow):
             return 2
         elif self.radioButton_3.isChecked():
             return 3
+        elif self.radioButton_4.isChecked():
+            return 4
+        elif self.radioButton_5.isChecked():
+            return 5
 
     def get_checkBoxState(self):
         return self.checkBox.isChecked()
@@ -41,17 +45,18 @@ class Main(QMainWindow, GUI.Ui_MainWindow):
         if text is not None:
             # 检查单选按钮情况
             radioButtonState = self.get_radioButtonState()
-            if radioButtonState == 1:
-                dic = Counter(text)
-            elif radioButtonState == 2:
+            if radioButtonState == 2:
                 text = filter(lambda chr: chr in self.str_upper, text)
                 text = "".join(text)
-                dic = Counter(text)
             elif radioButtonState == 3:
                 text = filter(lambda chr: chr in self.str_lower, text)
                 text = "".join(text)
-                dic = Counter(text)
+            elif radioButtonState == 4:
+                text = text.upper()
+            elif radioButtonState == 5:
+                text = text.lower()
 
+            dic = Counter(text)
             # 从大到小排序
             sort_info = sorted(dic.items(), key=lambda i:i[1], reverse=True) # [('e', 39915), ... ('z', 264)]
             

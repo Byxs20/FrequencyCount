@@ -67,14 +67,28 @@
          <item>
           <widget class="QRadioButton" name="radioButton_2">
            <property name="text">
-            <string>大写</string>
+            <string>仅大写</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QRadioButton" name="radioButton_3">
            <property name="text">
-            <string>小写</string>
+            <string>仅小写</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_4">
+           <property name="text">
+            <string>强制大写</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_5">
+           <property name="text">
+            <string>强制小写</string>
            </property>
           </widget>
          </item>
